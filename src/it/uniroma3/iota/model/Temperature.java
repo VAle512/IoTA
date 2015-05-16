@@ -10,9 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@NamedQuery(name="getAllBoardTemperatures",query="SELECT t FROM Temperature t WHERE t.ArduinoBoard.id = :id")
 @Entity
 public class Temperature {
 	
