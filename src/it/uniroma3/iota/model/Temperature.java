@@ -22,15 +22,15 @@ public class Temperature {
 	@Column(nullable=false)
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id")
-	private Long boardId;
+	private ArduinoBoard board;
 	@Column(nullable=false)
 	private Double value;
 	@Column(nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date evaluationTime;
 	
-	public Temperature(Long boardId, Double value, Date evaluationTime) {
-		this.boardId = boardId;
+	public Temperature(ArduinoBoard board, Double value, Date evaluationTime) {
+		this.board = board;
 		this.value = value;
 		this.evaluationTime = evaluationTime;
 	}
@@ -43,12 +43,12 @@ public class Temperature {
 		this.id = id;
 	}
 
-	public Long getBoardId() {
-		return boardId;
+	public ArduinoBoard getBoard() {
+		return board;
 	}
 
-	public void setBoardId(Long boardId) {
-		this.boardId = boardId;
+	public void setBoardId(ArduinoBoard board) {
+		this.board = board;
 	}
 
 	public Double getValue() {
