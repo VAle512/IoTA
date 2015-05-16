@@ -39,7 +39,7 @@ public class TemperatureHelper {
 		}
 		
 		HelperArduinoBoardId helper = new HelperArduinoBoardId();
-		if(!helper.isValid())
+		if(!helper.isValid(request))
 			errors = false;
 
 		return !errors;
