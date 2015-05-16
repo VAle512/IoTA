@@ -6,11 +6,11 @@ public class HelperArduinoBoard {
 
 	public boolean isValid(HttpServletRequest request) {
 
-		String code = request.getParameter("code");
+		String code = request.getParameter("arduinoBoardCode");
 		boolean errors = false;
 
 		if ( code == null || code.equals("")) {
-			request.setAttribute("codeErr","Code is mandatory");
+			request.setAttribute("arduinoCodeErr","Code is mandatory");
 			errors = true;
 		}
 		
