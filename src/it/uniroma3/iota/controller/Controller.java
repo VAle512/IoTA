@@ -49,7 +49,7 @@ public class Controller extends HttpServlet {
 		String action = scanner.next();
 		action = action.substring(0,1).toUpperCase() + action.substring(1);
 
-		String actionName = "it.uniroma3.controller.action." + action + model;
+		String actionName = "it.uniroma3.iota.controller.action." + action + model;
 		return actionName;
 	}
 }

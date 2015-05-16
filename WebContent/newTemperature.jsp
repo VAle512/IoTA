@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Inserimento nuova Temperatura</h1>
-	<form action="productController" method="get">
+	<form action="controller/temperature.create" method="get">
 		<div>
 			Id Board: <input type="text" name="arduinoBoardId" value="${temperature.board.id}" />
 			<font color = "red" >${arduinoBoardIdErr} </font>
