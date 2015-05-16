@@ -13,6 +13,8 @@ public class ArduinoBoardFacade {
 
 	@PersistenceContext(unitName = "IoTAdb-unit")
 	private EntityManager em;
+	
+	
 
 	
 	
