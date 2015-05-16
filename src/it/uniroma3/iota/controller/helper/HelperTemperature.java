@@ -3,7 +3,7 @@ package it.uniroma3.iota.controller.helper;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
-public class TemperatureHelper {
+public class HelperTemperature {
 
 	public boolean isValid(HttpServletRequest request) {
 
