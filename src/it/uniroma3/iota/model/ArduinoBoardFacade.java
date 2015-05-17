@@ -1,59 +1,66 @@
 package it.uniroma3.iota.model;
 
 import java.util.List;
-
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-@Stateless(name="aFacade")
 public class ArduinoBoardFacade {
 
-	@PersistenceContext(unitName = "IoTAdb-unit")
+	private EntityManagerFactory emf;
 	private EntityManager em;
+
+	public ArduinoBoardFacade(){
+		this.emf = Persistence.createEntityManagerFactory("IoTAdb-unit");
+		this.em = this.emf.createEntityManager();
+	}
 
 	public ArduinoBoard createArduinoBoard(String code)	 {
 		ArduinoBoard aBoard = new ArduinoBoard(code);
+		EntityTransaction tx = this.em.getTransaction();
+		tx.begin();
 		this.em.persist(aBoard);
+		tx.commit();;
+		this.em.persist(aBoard);
+		this.close();
 		return aBoard;
 	}
 
 	public ArduinoBoard getArduinoBoard(Long id) {
 		ArduinoBoard aBoard	= this.em.find(ArduinoBoard.class, id);
+		this.close();
 		return aBoard;
 
-	}
-
-	public ArduinoBoard removeArduindoBoard(Long id) {
-		try {
-			ArduinoBoard aBoard = this.em.find(ArduinoBoard.class, id);
-			this.em.remove(aBoard);
-			return aBoard;
-		}
-		catch(Exception e)	{
-			return null;
-		}
 	}
 
 	public List<ArduinoBoard> getAllArduinoBoards()	{
 		Query allArduinoBoardsQuery = this.em.createQuery("SELECT a FROM ArduinoBoard a");
 		List<ArduinoBoard> allArduinoBoards = allArduinoBoardsQuery.getResultList();
+		this.close();
 		return allArduinoBoards;
 	}
 
-	public Boolean updateArduinoBoard(Long id, String code) {
-		try{
-			ArduinoBoard a = this.em.find(ArduinoBoard.class, id);
-			a.setCode(code);
-			this.em.refresh(a);
-			return true;
-		}
-		catch(Exception e){
-			return false;
-		}
+	public void deleteArduinoBoard(Long id) {
+		EntityTransaction tx = this.em.getTransaction();
+		tx.begin();
+		ArduinoBoard board = this.em.find(ArduinoBoard.class, id);
+		this.em.remove(board);
+		tx.commit();
+		this.close();	
+	}
+
+	public void updateArduinoBoard(ArduinoBoard board) {
+		EntityTransaction tx = this.em.getTransaction();
+		tx.begin();
+		this.em.merge(board);
+		tx.commit();
+		this.close();
+	}
+
+	private void close(){
+		this.em.close();
+		this.emf.close();
 	}
 }

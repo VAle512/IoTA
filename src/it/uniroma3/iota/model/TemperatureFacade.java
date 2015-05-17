@@ -2,67 +2,66 @@ package it.uniroma3.iota.model;
 
 import java.util.Date;
 import java.util.List;
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-@Stateless(name = "tFacade")
 public class TemperatureFacade {
 
-	@PersistenceContext(unitName = "IoTAdb-unit")
+	private EntityManagerFactory emf;
 	private EntityManager em;
+
+	public TemperatureFacade(){
+		this.emf = Persistence.createEntityManagerFactory("IoTAdb-unit");
+		this.em = this.emf.createEntityManager();
+	}
 
 	public Temperature createTemperature(ArduinoBoard board, Double value, Date evaluationTime){
 		Temperature t = new Temperature(board, value, evaluationTime);
+		EntityTransaction tx = this.em.getTransaction();
+		tx.begin();
 		this.em.persist(t);
+		tx.commit();;
+		this.em.persist(t);
+		this.close();
 		return t;
 	}
 
 	public Temperature getTemperature(Long id){
-		return this.em.find(Temperature.class,id);
+		Temperature t = this.em.find(Temperature.class,id);
+		this.close();
+		return t;
 	}
 
 	public List<Temperature> getAllBoardTemperatures(Long id){
 		Query q = this.em.createNamedQuery("getAllBoardTemperatures");
 		q.setParameter("id", id);
-		try{
-			List<Temperature> lt = q.getResultList();
-			return lt;
-		}
-		catch(Exception e){
-			return null;
-		}
+		List<Temperature> lt = q.getResultList();
+		this.close();
+		return lt;
 	}
 
-	/**
-	 * 
-	 * @param id of the temperature to remove
-	 * @return the temperature removed
-	 */
-	public Temperature removeTemperature(Long id) {
-		try{
-			Temperature t = this.em.find(Temperature.class, id);
-			this.em.remove(t);
-			return t;
-		}
-		catch(Exception e){
-			return null;
-		}
+	public void deleteTemperature(Long id) {
+		EntityTransaction tx = this.em.getTransaction();
+		tx.begin();
+		Temperature t = this.em.find(Temperature.class, id);
+		this.em.remove(t);
+		tx.commit();
+		this.close();	
 	}
 
+	public void updateTemperature(Temperature t){
+		EntityTransaction tx = this.em.getTransaction();
+		tx.begin();
+		this.em.merge(t);
+		tx.commit();
+		this.close();
+	}
 
-	public Boolean updateTemperature(Long id, ArduinoBoard board, Double value, Date evaluationTime){
-		try{
-			Temperature t = this.em.find(Temperature.class, id);
-			t.setBoardId(board);
-			t.setValue(value);
-			t.setEvaluationTime(evaluationTime);
-			this.em.refresh(t);
-			return true;
-		}
-		catch(Exception e){
-			return false;
-		}
+	private void close(){
+		this.em.close();
+		this.emf.close();
 	}
 }

@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Inserimento Temperatura</title>
+<title> </title>
 </head>
 <body>
-<h1>Inserimento nuova Temperatura</h1>
+<h1>Inserimento</h1>
 ERRORE!
 </body>
 </html>

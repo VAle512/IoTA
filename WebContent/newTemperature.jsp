@@ -1,29 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+    pageEncoding="US-ASCII"%>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Inserimento Temperatura</title>
+	<meta charset="ISO-8859-1" />
+	<title>New TEMP</title>
 </head>
 <body>
-<h1>Inserimento nuova Temperatura</h1>
-	<form action="controller/temperature.create" method="get">
-		<div>
-			Id Board: <input type="text" name="arduinoBoardId" value="${temperature.board.id}" />
-			<font color = "red" >${arduinoBoardIdErr} </font>
-		</div>
-		<div>
-			Value: <input type="text" name="temperatureValue" value="${temperature.value}"/>
-			 ${temperatureValueErr}
-		</div>
-		<div>
-			Evaluation Time: <input type="text" name="temperatureEvaluationTime" value = "${temperature.evaluationTime}"/>
-			 ${temperatureEvaluationTimeErr}
-		</div>
-		<div>
-			<input type="submit" name="sumbit" value="invia" />
-		</div>
+	<form action="<c:url value="/controller/temperature.create" />" method="get">
+	<div>ID: <input type="text" name="arduinoBoardId" value="${arduinoBoard.id}"/> </div>
+	<div>VALUE: <input type="text" name="temperatureValue" value="${temperature.value}"/> ${temperatureValueErr}</div>
+	<div>TIME: <input type="text" name="arduinoBoardCode" value="${temperature.evaluationTime}"/> ${temperatureEvaluationTimeErr}</div>
+	<div><input type="submit" name="sumbit" value="invia" /></div>
 	</form>
 </body>
-</html>
+</html> 

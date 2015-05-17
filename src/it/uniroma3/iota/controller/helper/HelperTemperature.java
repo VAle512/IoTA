@@ -1,6 +1,8 @@
 package it.uniroma3.iota.controller.helper;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class HelperTemperature {
@@ -31,13 +33,14 @@ public class HelperTemperature {
 		}
 		else
 			try{
-				Date.parse(evaluationTime);
+				SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd G HH:mm:ss");
+				format.parse(request.getParameter("temperatureEvaluationTime"));
 			}
-		catch(IllegalArgumentException e) {
-			request.setAttribute("temperatureEvaluationTimeErr","Evaluation time must be a date");
+		catch(ParseException e) {
+			request.setAttribute("temperatureEvaluationTimeErr","Evaluation time format must be: yyyy.MM.dd G HH:mm:ss");
 			errors = true;
 		}
-		
+
 		HelperArduinoBoardId helper = new HelperArduinoBoardId();
 		if(!helper.isValid(request))
 			errors = false;

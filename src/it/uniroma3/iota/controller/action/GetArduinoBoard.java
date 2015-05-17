@@ -1,11 +1,8 @@
 package it.uniroma3.iota.controller.action;
 
-
-
 import it.uniroma3.iota.controller.helper.HelperArduinoBoardId;
 import it.uniroma3.iota.model.ArduinoBoard;
 import it.uniroma3.iota.model.ArduinoBoardFacade;
-
 import javax.ejb.EJB;
 import javax.servlet.http.HttpServletRequest;
 

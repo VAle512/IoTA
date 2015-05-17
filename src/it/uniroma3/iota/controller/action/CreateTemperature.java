@@ -3,7 +3,6 @@ package it.uniroma3.iota.controller.action;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import it.uniroma3.iota.controller.helper.HelperTemperature;
 import it.uniroma3.iota.model.ArduinoBoard;
 import it.uniroma3.iota.model.Temperature;
