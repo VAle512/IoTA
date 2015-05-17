@@ -24,5 +24,4 @@ public class HelperArduinoBoardId {
 		}
 		return !errors;
 	}
-
 }

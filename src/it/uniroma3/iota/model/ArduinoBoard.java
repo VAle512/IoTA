@@ -15,6 +15,9 @@ public class ArduinoBoard {
 	@Column(unique=true,nullable=false)
 	private String code;
 	
+	public ArduinoBoard(){
+	}
+	
 	public ArduinoBoard(String code) {
 		this.code = code;
 	}
@@ -34,5 +37,4 @@ public class ArduinoBoard {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
 }

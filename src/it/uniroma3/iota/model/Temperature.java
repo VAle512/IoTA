@@ -31,6 +31,9 @@ public class Temperature {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date evaluationTime;
 	
+	public Temperature(){
+	}
+	
 	public Temperature(ArduinoBoard board, Double value, Date evaluationTime) {
 		this.board = board;
 		this.value = value;
@@ -68,5 +71,4 @@ public class Temperature {
 	public void setEvaluationTime(Date evaluationTime) {
 		this.evaluationTime = evaluationTime;
 	}
-	
 }

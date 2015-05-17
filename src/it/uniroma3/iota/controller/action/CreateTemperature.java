@@ -40,5 +40,4 @@ public class CreateTemperature implements Action {
 		} else
 			return "/newTemperature.jsp";
 	}
-
 }

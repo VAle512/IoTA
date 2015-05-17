@@ -15,6 +15,5 @@ public class HelperArduinoBoard {
 		}
 		
 		return !errors;
-
 	}
 }

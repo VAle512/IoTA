@@ -28,5 +28,4 @@ public class GetArduinoBoard implements Action{
 		} else
 			return "/invalid.jsp";
 	}
-
 }
