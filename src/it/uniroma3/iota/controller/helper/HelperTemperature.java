@@ -9,12 +9,12 @@ public class HelperTemperature {
 
 	public boolean isValid(HttpServletRequest request) {
 
-		String value = request.getParameter("TemperatureValue");
-		String evaluationTime = request.getParameter("TemperatureEvaluationTime");
+		String value = request.getParameter("temperatureValue");
+		String evaluationTime = request.getParameter("temperatureEvaluationTime");
 		boolean errors = false;
 
 		if ( value == null || value.equals("")) {
-			request.setAttribute("temperatureValueErr","value is mandatory");
+			request.setAttribute("temperatureValueErr","Value is mandatory");
 			errors = true;
 		}
 		else {
@@ -31,14 +31,15 @@ public class HelperTemperature {
 			request.setAttribute("temperatureEvaluationTimeErr","Evaluation time is mandatory");
 			errors = true;
 		}
-		else
+		else{
 			try{
-				SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd G HH:mm:ss");
-				format.parse(request.getParameter("temperatureEvaluationTime"));
+				SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+				format.parse(evaluationTime);
 			}
-		catch(ParseException e) {
-			request.setAttribute("temperatureEvaluationTimeErr","Evaluation time format must be: yyyy.MM.dd G HH:mm:ss");
-			errors = true;
+			catch(ParseException e) {
+				request.setAttribute("temperatureEvaluationTimeErr","Evaluation time format must be: yyyy.MM.dd HH:mm:ss");
+				errors = true;
+			}
 		}
 
 		HelperArduinoBoardId helper = new HelperArduinoBoardId();

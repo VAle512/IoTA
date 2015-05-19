@@ -1,14 +1,12 @@
 package it.uniroma3.iota.model;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -22,14 +20,13 @@ public class Temperature {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	@Column(nullable=false)
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
-	private ArduinoBoard board;
-	@Column(nullable=false)
 	private Double value;
 	@Column(nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date evaluationTime;
+	@Column(nullable=false)
+	@ManyToOne(fetch = FetchType.LAZY)
+	private ArduinoBoard board;
 	
 	public Temperature(){
 	}

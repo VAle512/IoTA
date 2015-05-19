@@ -12,7 +12,7 @@
 	<form action="<c:url value="/controller/temperature.create" />" method="get">
 	<div>ID: <input type="text" name="arduinoBoardId" value="${arduinoBoard.id}"/> </div>
 	<div>VALUE: <input type="text" name="temperatureValue" value="${temperature.value}"/> ${temperatureValueErr}</div>
-	<div>TIME: <input type="text" name="arduinoBoardCode" value="${temperature.evaluationTime}"/> ${temperatureEvaluationTimeErr}</div>
+	<div>TIME: <input type="text" name="temperatureEvaluationTime" value="${temperature.evaluationTime}"/> ${temperatureEvaluationTimeErr}</div>
 	<div><input type="submit" name="sumbit" value="invia" /></div>
 	</form>
 </body>

@@ -23,16 +23,22 @@ public class ArduinoBoardFacade {
 		tx.begin();
 		this.em.persist(aBoard);
 		tx.commit();;
-		this.em.persist(aBoard);
 		this.close();
 		return aBoard;
 	}
 
+	public ArduinoBoard getArduinoBoard(String code) {
+		Query q = this.em.createQuery("SELECT a FROM ArduinoBoard a WHERE a.code = :code");
+		q.setParameter("code", code);
+		ArduinoBoard aBoard	= (ArduinoBoard)q.getSingleResult();
+		this.close();
+		return aBoard;
+	}
+	
 	public ArduinoBoard getArduinoBoard(Long id) {
 		ArduinoBoard aBoard	= this.em.find(ArduinoBoard.class, id);
 		this.close();
 		return aBoard;
-
 	}
 
 	public List<ArduinoBoard> getAllArduinoBoards()	{

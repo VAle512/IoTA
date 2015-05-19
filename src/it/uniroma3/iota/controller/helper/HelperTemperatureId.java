@@ -17,7 +17,7 @@ public class HelperTemperatureId {
 				Long.parseLong(id);
 			}
 			catch (NumberFormatException e) {
-				request.setAttribute("temperatureId","Invalid id");
+				request.setAttribute("temperatureIdErr","Invalid id");
 				errors = true;
 			}
 		}

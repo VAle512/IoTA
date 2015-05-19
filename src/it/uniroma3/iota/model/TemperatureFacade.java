@@ -23,8 +23,7 @@ public class TemperatureFacade {
 		EntityTransaction tx = this.em.getTransaction();
 		tx.begin();
 		this.em.persist(t);
-		tx.commit();;
-		this.em.persist(t);
+		tx.commit();
 		this.close();
 		return t;
 	}

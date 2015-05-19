@@ -18,7 +18,7 @@ public class HelperArduinoBoardId {
 				Long.parseLong(id);
 			}
 			catch (NumberFormatException e) {
-				request.setAttribute("arduinoBoardId","Invalid id");
+				request.setAttribute("arduinoBoardIdErr","Invalid id");
 				errors = true;
 			}
 		}
