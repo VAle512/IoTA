@@ -8,6 +8,8 @@ public class TestMain {
 	public static void main(String args[]){
 		ArduinoBoardFacade facade = new ArduinoBoardFacade();
 		ArduinoBoard b = facade.getArduinoBoard(new Long(1));
+		ArduinoBoardFacade facade2 = new ArduinoBoardFacade();
+		facade2.createArduinoBoard("testAle2");
 		System.out.println(b.toString());
 		Long x = Long.parseLong("151");
 		Long y = x + new Long(1);

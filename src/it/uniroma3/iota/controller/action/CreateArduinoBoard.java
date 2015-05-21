@@ -16,9 +16,9 @@ public class CreateArduinoBoard implements Action{
 
 			ArduinoBoardFacade facade = new ArduinoBoardFacade();
 			ArduinoBoard arduinoBoard = facade.createArduinoBoard(code);
-			request.setAttribute("arduinoBoard", arduinoBoard);
+			request.setAttribute("arduinoBoard",arduinoBoard);
 
-			return "/arduinoBoard.jsp";
+			return "/confirmArduinoBoardCreation.jsp";
 		} else
 			return "/newArduinoBoard.jsp";
 	}

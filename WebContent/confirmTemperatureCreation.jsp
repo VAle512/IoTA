@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Creation successful</title>
 </head>
 <body>
-<h1>SUCCESSO!</h1>
+<h1>You have successfully inserted the following temperature:</h1>
+<div>ID: ${temperature.id}</div>
+<div>Value: ${temperature.value }</div>
+<div>Evaluation time: ${temperature.evaluationTime}</div>
+<div>Source board id: ${arduinoBoard.id}</div>
 </body>
 </html>

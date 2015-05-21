@@ -22,7 +22,7 @@ public class ArduinoBoardFacade {
 		EntityTransaction tx = this.em.getTransaction();
 		tx.begin();
 		this.em.persist(aBoard);
-		tx.commit();;
+		tx.commit();
 		this.close();
 		return aBoard;
 	}

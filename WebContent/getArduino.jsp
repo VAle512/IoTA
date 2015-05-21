@@ -6,12 +6,13 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1" />
-	<title>New ARD</title>
+	<title>Arduino Board Selection</title>
 </head>
 <body>
+<h1>Select an Arduino Board via ID</h1>
 	<form action="<c:url value="/controller/arduinoBoard.get" />" method="get">
-	<div>CODE: <input type="text" name="arduinoBoardId" value="${arduinoBoard.id}"/> ${arduinoIdErr}</div>
-	<div><input type="submit" name="sumbit" value="invia" /></div>
+	<div>ID: <input type="text" name="arduinoBoardId" value="${arduinoBoard.id}"/> ${arduinoIdErr}</div>
+	<div><input type="submit" name="sumbit" value="submit" /></div>
 	</form>
 </body>
 </html> 

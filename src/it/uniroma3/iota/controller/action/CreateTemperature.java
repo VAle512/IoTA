@@ -31,7 +31,7 @@ public class CreateTemperature implements Action {
 			TemperatureFacade tf = new TemperatureFacade();
 			Temperature temperature = tf.createTemperature(board, value, evaluationTime);
 			request.setAttribute("temperature", temperature);
-			return "/temperature.jsp";
+			return "/confirmTemperatureCreation.jsp";
 		} else
 			return "/newTemperature.jsp";
 	}
