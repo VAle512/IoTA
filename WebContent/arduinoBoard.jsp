@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>You have selected </h1>
-<div>ID: ${arduinoBoard.id }]</div>
+<div>ID: ${arduinoBoard.id }</div>
 <div>Code: ${arduinoBoard.code}</div>
 </body>
 </html>
