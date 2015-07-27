@@ -12,5 +12,6 @@
 <div>Value: ${temperature.value }</div>
 <div>Evaluation time: ${temperature.evaluationTime}</div>
 <div>Source board id: ${arduinoBoard.id}</div>
+<a href="/IoTA/index.jsp">HOME</a>
 </body>
 </html>

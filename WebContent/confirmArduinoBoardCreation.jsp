@@ -8,5 +8,6 @@
 <h1>You have created the following Arduino Board:</h1>
 <div>ID: ${arduinoBoard.id }</div>
 <div>Code: ${arduinoBoard.code}</div>
+<a href="/IoTA/index.jsp">HOME</a>
 </body>
 </html>

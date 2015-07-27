@@ -4,10 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> </title>
+<title>IoTA home</title>
 </head>
 <body>
-<h1>Inserimento</h1>
-ERRORE!
+<h1>Welcome in IoTA</h1>
+<ol>
+<li><a href="/IoTA/newArduinoBoard.jsp">New Arduino</a></li>
+<li><a href="/IoTA/newTemperature.jsp">New Temperature</a></li>
+<li><a href="/IoTA/getArduino.jsp">Get Arduino</a></li>
+</ol>
 </body>
 </html>
